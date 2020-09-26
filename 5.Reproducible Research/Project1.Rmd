@@ -77,7 +77,7 @@ data$steps <- impute(data$steps, fun=mean)
 ##### 4. Make a histogram of the total number of steps taken each day 
 ```{r}
 inputed_steps <- tapply(data$steps, data$date, sum)
-qplot(inuted_steps, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
+qplot(inputed_steps, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
 ##### ... and Calculate and report the mean and median total number of steps taken per day. 

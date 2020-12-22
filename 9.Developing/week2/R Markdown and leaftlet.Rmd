@@ -1,0 +1,50 @@
+---
+title: "R Markdown and Leaflet"
+author: "Robinson Montes Gómez"
+date: "12/22  /2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Important places for my
+
+```{r cars}
+library(leaflet)
+
+# Creating an icons
+StudyIcon <- makeIcon(
+  iconUrl = "https://www.flaticon.es/premium-icon/icons/svg/2153/2153314.svg",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16)
+
+HouseIcon <- makeIcon(
+  iconUrl = "https://www.flaticon.es/svg/static/icons/svg/609/609803.svg",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16)
+
+UdeMIcon <- makeIcon(
+  iconUrl = "https://radcolombia.org/web/sites/default/files/archivos/instituciones/universidad-medellin/logo-um.png",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16)
+
+PoliIcon <- makeIcon(
+  iconUrl = "https://upload.wikimedia.org/wikipedia/commons/f/fb/Politecnico.png",
+  iconWidth = 31*215/230, iconHeight = 31,
+  iconAnchorX = 31*215/230/2, iconAnchorY = 16)
+
+my_map <- leaflet() %>% 
+  addTiles() %>%
+    addMarkers(lat=6.282311, lng=-75.590952, popup="My school", icon = StudyIcon) %>%
+      addMarkers(lat=6.283543, lng=-75.592159, popup="My high school", icon = StudyIcon) %>%
+        addMarkers(lat=6.284481, lng=-75.593265, popup="I used to live here", icon = HouseIcon) %>%
+          addMarkers(lat=6.211949, lng=-75.576983, popup="My fist university", icon = PoliIcon) %>%
+            addMarkers(lat=6.257914, lng=-75.607890, popup="My home", icon = HouseIcon) %>%
+              addMarkers(lat=6.231874, lng=-75.611574, popup="My actual university", icon = UdeMIcon)
+
+my_map
+  
+```
+

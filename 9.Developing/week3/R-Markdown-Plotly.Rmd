@@ -1,0 +1,45 @@
+---
+title: "R Markdown Plotly"
+author: "Robinson Montes Gómez"
+date: "11/24/2020"
+output:
+  ioslides_presentation: default
+  slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is R Markdown?
+
+R Markdown is an incredible tool for make documents or presentations combining text, plots, code and many interesting things. The output of the Markdown file could be a HTML, PDF or a PowerPoint file to make beautiful presentations for your university or a job
+
+## Create a plot
+
+Lets create a plot with a library called plotly, an excellent tool to make interactive plots, just writing a short line of code. For the fist plot, We'll work with the EuStockMarkets data set from the datasets library and we'll make a scatter plot
+
+```{r, echo=TRUE, eval=FALSE}
+library(datasets)
+data <- as.data.frame(EuStockMarkets)
+install.packages('plotly')
+library(plotly)
+plot_ly(data, x = ~DAX, y = ~FTSE, type = 'scatter')
+```
+
+## Scatter Plot EuStockMarkets
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+data <- as.data.frame(EuStockMarkets)
+library(plotly)
+plot_ly(data, x = ~DAX, y = ~FTSE, type = 'scatter')
+```
+
+
+## Last Example
+
+```{r, message=FALSE, warning=FALSE}
+data2 <- mtcars
+library(plotly)
+plot_ly(data2, color =  ~cyl, y = ~mpg, type = 'histogram')
+```
